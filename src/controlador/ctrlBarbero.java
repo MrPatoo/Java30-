@@ -20,6 +20,9 @@ public class ctrlBarbero implements MouseListener {
         
         vista.btnAgregar.addMouseListener(this);
         modelo.MostrarBar(vista.tbBarbero);
+        vista.btnEliminar.addMouseListener(this);
+        vista.tbBarbero.addMouseListener(this);
+        vista.btnActualizar.addMouseListener(this);
     }
 
     @Override
@@ -31,18 +34,35 @@ public class ctrlBarbero implements MouseListener {
             modelo.setCorreo(vista.txtCorreo.getText());
 
 
-           // modelo.LimpiarDatos(vista);
-            
+            modelo.limpiar(vista);
             modelo.GuardarBar();
+            modelo.MostrarBar(vista.tbBarbero);
+
         }
         
         
         if(e.getSource() == vista.btnEliminar){
             modelo.EliminarBar(vista.tbBarbero);
             modelo.MostrarBar(vista.tbBarbero);
+            modelo.ActualizarBar(vista.tbBarbero);
         }
         
         
+         if(e.getSource() == vista.tbBarbero){
+            modelo.cargarDatosTabla(vista);
+        }
+        
+        if(e.getSource() == vista.btnActualizar){
+            modelo.setNombre(vista.txtNombre.getText());
+            modelo.setEdad(Integer.parseInt(vista.txtEdad.getText()));
+            modelo.setPeso(Integer.parseInt(vista.txtPeso.getText()));
+            modelo.setCorreo(vista.txtCorreo.getText());
+
+            
+            modelo.MostrarBar(vista.tbBarbero);
+            modelo.ActualizarBar(vista.tbBarbero);
+
+        }
         
         
     
