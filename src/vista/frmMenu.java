@@ -4,6 +4,9 @@
  */
 package vista;
 
+import controlador.ctrlBarbero;
+import modelo.Barbero;
+
 /**
  *
  * @author Estudiante
@@ -15,6 +18,18 @@ public class frmMenu extends javax.swing.JFrame {
      */
     public frmMenu() {
         initComponents();
+        this.setLocationRelativeTo(this);
+
+    }
+    
+    
+       public static void initFrmVisitas(){
+    
+        Barbero modelo = new Barbero();
+        frmMenu vista = new frmMenu();
+        ctrlBarbero controlador = new ctrlBarbero(vista, modelo);
+        
+        vista.setVisible(true);    
     }
 
     /**
@@ -27,8 +42,8 @@ public class frmMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         btnAgregar = new javax.swing.JButton();
-        txtActualizar = new javax.swing.JButton();
-        txtEliminar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
         txtPeso = new javax.swing.JTextField();
@@ -46,11 +61,11 @@ public class frmMenu extends javax.swing.JFrame {
         btnAgregar.setText("Agregar");
         btnAgregar.setPreferredSize(new java.awt.Dimension(120, 50));
 
-        txtActualizar.setText("Actualizar");
-        txtActualizar.setPreferredSize(new java.awt.Dimension(120, 50));
+        btnActualizar.setText("Actualizar");
+        btnActualizar.setPreferredSize(new java.awt.Dimension(120, 50));
 
-        txtEliminar.setText("Eliminar");
-        txtEliminar.setPreferredSize(new java.awt.Dimension(120, 50));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setPreferredSize(new java.awt.Dimension(120, 50));
 
         txtNombre.setPreferredSize(new java.awt.Dimension(600, 50));
 
@@ -121,9 +136,9 @@ public class frmMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(90, 90, 90)
-                .addComponent(txtActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81)
-                .addComponent(txtEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(174, 174, 174))
         );
         layout.setVerticalGroup(
@@ -150,8 +165,8 @@ public class frmMenu extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                 .addContainerGap())
@@ -196,7 +211,9 @@ public class frmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -204,10 +221,8 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tbBarbero;
-    public javax.swing.JButton txtActualizar;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtEdad;
-    public javax.swing.JButton txtEliminar;
     public javax.swing.JTextField txtNombre;
     public javax.swing.JTextField txtPeso;
     // End of variables declaration//GEN-END:variables
